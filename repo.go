@@ -102,7 +102,7 @@ func updateRepos(ui *DeckardUI) {
 			updateStatus(ui, fmt.Sprintf("Pulling repo: %s", conf.Repo))
 			err := pullRepo(folder)
 			if err != nil {
-				panic(err) //TODO show error in ui instead if this fails
+				panic(fmt.Errorf("error pulling %s: %w", folder, err)) //TODO show error in ui instead if this fails
 			}
 		}
 	}
